@@ -9,17 +9,20 @@ namespace WebApp_undertheHood.Pages
     public class HRManagerModel : PageModel
     {
         private readonly IHttpClientFactory httpClientFactory;
+
+        public List<WeatherForecastDTO>? WeatherForecastsItems { get; set; }
+
         public HRManagerModel(IHttpClientFactory httpClientFactory)
         {
             this.httpClientFactory = httpClientFactory;
         }
 
-        public void OnGet()
+        public async Task OnGetAsync()
         {
             var client = httpClientFactory.CreateClient("WebApi");
             // Call your API endpoints using the client
-            client.GetFromJsonAsync<WeatherForecastDTO>("WeatherForecast");
-         }
-        
+            WeatherForecastsItems = await client.GetFromJsonAsync<List<WeatherForecastDTO>>("WeatherForecast");
+        }
+
     }
 }

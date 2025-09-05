@@ -25,7 +25,7 @@ builder.Services.AddSingleton<IAuthorizationHandler, HRManagerRequirementHandler
 // configure Http client 
 builder.Services.AddHttpClient("WebApi", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7198");
+    client.BaseAddress = new Uri("http://localhost:5043");
 });
 var app = builder.Build();
 

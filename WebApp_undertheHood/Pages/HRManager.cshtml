@@ -4,107 +4,82 @@
     ViewData["Title"] = "HR Manager Dashboard";
 }
 
-<div class="container py-5 fade-in-up">
-    <div class="text-center mb-5">
-        <h1 class="fw-bold text-gradient">
-            <i class="bi bi-person-gear me-2"></i> HR Manager Dashboard
-        </h1>
-        <p class="lead text-muted">Welcome back! Monitor employee data, review reports, and take quick actions — all in
-            one place.</p>
-    </div>
-
-    <div class="row g-4">
-        <!-- Employee Management -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 hover-shadow">
-                <div class="card-header bg-primary text-white d-flex align-items-center">
-                    <i class="bi bi-people-fill me-2 fs-5"></i>
-                    <span class="fw-semibold">Employee Management</span>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <a asp-page="/HRManager/Employees" class="text-decoration-none">
-                                👥 View Employees
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a asp-page="/HRManager/AddEmployee" class="text-decoration-none">
-                                ➕ Add New Employee
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a asp-page="/HRManager/UpdateEmployee" class="text-decoration-none">
-                                ✏️ Update Employee Info
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Reports -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 hover-shadow">
-                <div class="card-header bg-success text-white d-flex align-items-center">
-                    <i class="bi bi-bar-chart-line-fill me-2 fs-5"></i>
-                    <span class="fw-semibold">Reports</span>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <a asp-page="/HRManager/Reports/Attendance" class="text-decoration-none">
-                                📅 Attendance Report
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a asp-page="/HRManager/Reports/Leave" class="text-decoration-none">
-                                📝 Leave Report
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a asp-page="/HRManager/Reports/Performance" class="text-decoration-none">
-                                📊 Performance Review
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quick Actions -->
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100 border-0 hover-shadow">
-                <div class="card-header bg-info text-white d-flex align-items-center">
-                    <i class="bi bi-lightning-fill me-2 fs-5"></i>
-                    <span class="fw-semibold">Quick Actions</span>
-                </div>
-                <div class="card-body d-grid gap-3">
-                    <button class="btn btn-outline-primary pulse-on-hover">
-                        ✅ Approve Leave Requests
-                    </button>
-                    <button class="btn btn-outline-secondary pulse-on-hover">
-                        📢 Send Company Announcement
-                    </button>
-                    <button class="btn btn-outline-danger pulse-on-hover">
-                        🚨 Flag HR Issue
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
- 
-    @if(Model.WeatherForecastItems is not null)
-    {
-        @foreach(var item in Model.weatherForecastItems)
-        {
-            <div>
-                <h5>@item.Date.ToString("MMMM dd, yyyy")</h5>
-                <p>Temperature: @item.TemperatureC °C</p>
-                <p>Summary: @item.Summary</p>
-            </div>
-        }
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+        margin: 0;
+        padding: 20px;
     }
 
+    .dashboard-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #0078D7;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 2px #ccc;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    table {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #0078D7;
+        color: white;
+        font-size: 1.1rem;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+        transform: scale(1.01);
+        transition: all 0.3s ease;
+    }
+
+    td {
+        color: #333;
+        font-size: 1rem;
+    }
+
+    
+    }
+</style>
+
+<h1 class="dashboard-title">HR Manager Dashboard</h1>
+
+@if (Model.WeatherForecastsItems is not null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Summary</th>
+                <th>Date</th>
+                <th>Temperature (°C)</th>
+                <th>Temperature (°F)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var items in Model.WeatherForecastsItems)
+            {
+                <tr>
+                    <td>@items.Summary</td>
+                    <td>@items.Date.ToShortDateString()</td>
+                    <td>@items.TemperatureC</td>
+                    <td>@items.TemperatureF</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

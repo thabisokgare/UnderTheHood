@@ -26,10 +26,10 @@ C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\staticwebassets.build
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\WebApi.csproj.Up2Date
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\WebApi.dll
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\refint\WebApi.dll
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Users\ThabisoK\ASP.NET SECURITY\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
