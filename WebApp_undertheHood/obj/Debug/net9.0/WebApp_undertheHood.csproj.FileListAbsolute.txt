@@ -93,4 +93,5 @@ C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\refint\W
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\WebApp_undertheHood.pdb
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\WebApp_undertheHood.genruntimeconfig.cache
 C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\ref\WebApp_undertheHood.dll
-C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\compressed\nxvtp3q9bi-o3kul2gikb.gz
+C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\compressed\nxvtp3q9bi-1kay39xw2q.gz
+C:\Users\ThabisoK\ASP.NET SECURITY\WebApp_undertheHood\obj\Debug\net9.0\WebApp_undertheHood.sourcelink.json

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebApi",
+    "\\WebApi\\Properties",
+    "\\WebApp_undertheHood",
+    "\\WebApp_undertheHood\\Authorization",
+    "\\WebApp_undertheHood\\DTO",
+    "\\WebApp_undertheHood\\Pages",
+    "\\WebApp_undertheHood\\Pages\\Account"
+  ],
+  "SelectedNode": "\\WebApi\\WebApi.csproj.user",
+  "PreviewInSolutionExplorer": false
+}

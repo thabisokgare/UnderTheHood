@@ -9,7 +9,8 @@
         <h1 class="fw-bold text-gradient">
             <i class="bi bi-person-gear me-2"></i> HR Manager Dashboard
         </h1>
-        <p class="lead text-muted">Welcome back! Monitor employee data, review reports, and take quick actions — all in one place.</p>
+        <p class="lead text-muted">Welcome back! Monitor employee data, review reports, and take quick actions — all in
+            one place.</p>
     </div>
 
     <div class="row g-4">
@@ -93,3 +94,17 @@
         </div>
     </div>
 </div>
+
+ 
+    @if(Model.WeatherForecastItems is not null)
+    {
+        @foreach(var item in Model.weatherForecastItems)
+        {
+            <div>
+                <h5>@item.Date.ToString("MMMM dd, yyyy")</h5>
+                <p>Temperature: @item.TemperatureC °C</p>
+                <p>Summary: @item.Summary</p>
+            </div>
+        }
+    }
+
