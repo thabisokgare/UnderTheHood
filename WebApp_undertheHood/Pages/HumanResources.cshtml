@@ -1,0 +1,53 @@
+﻿@page
+@model WebApp_undertheHood.Pages.HumanResourcesModel
+@{
+    var colors = new[] { "primary", "success", "info", "warning", "danger" };
+    var random = new Random();
+    string cardColor1 = colors[random.Next(colors.Length)];
+    string cardColor2 = colors[random.Next(colors.Length)];
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4" style="color: #007bff;">Welcome to Human Resource Department</h1>
+        <p class="lead">Empowering your organization with secure and efficient HR management.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3 shadow-sm border-@cardColor1">
+                <div class="card-header bg-@cardColor1 text-white">Employee Services</div>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="#" class="text-@cardColor1">Employee Directory</a></li>
+                        <li><a href="#" class="text-@cardColor1">Onboarding & Offboarding</a></li>
+                        <li><a href="#" class="text-@cardColor1">Update Employee Records</a></li>
+                        <li><a href="#" class="text-@cardColor1">Manage Departments</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3 shadow-sm border-@cardColor2">
+                <div class="card-header bg-@cardColor2 text-white">HR Reports & Analytics</div>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="#" class="text-@cardColor2">Attendance & Leave Reports</a></li>
+                        <li><a href="#" class="text-@cardColor2">Performance Analytics</a></li>
+                        <li><a href="#" class="text-@cardColor2">Salary & Benefits Overview</a></li>
+                        <li><a href="#" class="text-@cardColor2">Compliance Documents</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4 shadow-sm border-info">
+        <div class="card-header bg-info text-white">Quick Actions</div>
+        <div class="card-body text-center">
+            <button class="btn btn-primary mx-2">Add New Employee</button>
+            <button class="btn btn-success mx-2">Generate HR Report</button>
+            <button class="btn btn-warning mx-2">Send Announcement</button>
+        </div>
+    </div>
+</div>

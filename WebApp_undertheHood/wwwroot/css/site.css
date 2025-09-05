@@ -1,0 +1,107 @@
+:root {
+  --primary-color: #258cfb;
+  --secondary-color: #6c757d;
+  --accent-color: #0dcaf0;
+  --success-color: #198754;
+  --font-base: 'Segoe UI', Roboto, sans-serif;
+  --transition-speed: 0.3s;
+}
+
+/* Base styles */
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: #f8f9fa;
+  color: #212529;
+  margin-bottom: 60px;
+}
+
+/* Button focus and hover */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5),
+              0 0 0 0.3rem var(--primary-color);
+  outline: none;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+/* Card hover effect */
+.card.hover-shadow {
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+/* Floating form placeholder */
+.form-floating > .form-control::placeholder {
+  color: var(--secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply animations */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.pulse-on-hover:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Section styling */
+section {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Responsive spacing */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}

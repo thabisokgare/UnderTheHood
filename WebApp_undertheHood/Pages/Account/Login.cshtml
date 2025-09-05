@@ -1,0 +1,105 @@
+﻿@page
+@model WebApp_undertheHood.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!-- Login Form -->
+<div id="loginForm" class="container py-5 fade-in-up">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4><i class="bi bi-box-arrow-in-right me-2"></i> HR Portal Login</h4>
+                </div>
+                <div class="card-body">
+                    <form id="loginFormElement" method="post" novalidate onsubmit="showLoadingScreen();">
+                        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="credential.Name" class="form-control" placeholder="Username" />
+                            <label asp-for="credential.Name">Username</label>
+                            <span asp-validation-for="credential.Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="credential.Password" type="password" class="form-control" placeholder="Password" />
+                            <label asp-for="credential.Password">Password</label>
+                            <span asp-validation-for="credential.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary pulse-on-hover">
+                                <i class="bi bi-lock-fill me-1"></i> Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center small">
+                    Need help? /SupportContact Support</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Progress -->
+<div id="loadingScreen" class="vh-100 d-flex flex-column justify-content-center align-items-center bg-light" style="display: none;">
+    <h4 class="mb-3 text-primary">Logging in...</h4>
+    <div class="progress w-50">
+        <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 0%">0%</div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('loginFormElement').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show loading
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('loadingScreen').style.display = 'flex';
+
+            let progress = 0;
+            const progressBar = document.getElementById('progressBar');
+            const interval = setInterval(() => {
+                progress += 2;
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(interval);
+                }
+            }, 30);
+
+            // Prepare data
+            const formData = new FormData(this);
+
+            fetch('@Url.Page("Login")', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                } else {
+                    return response.text();
+                }
+            })
+            .then(html => {
+                if (html) {
+                    // Show form again with validation errors
+                    document.getElementById('loginForm').innerHTML = html;
+                    document.getElementById('loginForm').style.display = 'block';
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }
+            })
+            .catch(() => {
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('loadingScreen').style.display = 'none';
+            });
+        });
+    </script>
+}
