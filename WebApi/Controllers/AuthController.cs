@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApi.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-
-public class AuthController : ControllerBase
+namespace WebApi.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
+    public class AuthController : ControllerBase
+    {
   private readonly IConfiguration _configuration;
 
   public AuthController(IConfiguration configuration)
@@ -69,13 +68,15 @@ public class AuthController : ControllerBase
     var TokenDescriptor = new SecurityTokenDescriptor
     {
       Claims = claimsDic,
-      SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SuperSecretKey"]??string.Empty)),
+      Expires = expiresAt,
+      NotBefore = DateTime.UtcNow,
+      SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SuperSecretKey"] ?? string.Empty)),
        SecurityAlgorithms.HmacSha256Signature)
     };
     // Implement your token creation logic here
     var tokenHandler = new JsonWebTokenHandler();
-    tokenHandler.CreateToken(TokenDescriptor);
-    return token;
+    return tokenHandler.CreateToken(TokenDescriptor);
   }
 
+}
 }
