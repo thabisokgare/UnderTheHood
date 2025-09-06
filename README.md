@@ -5,20 +5,6 @@ This project provides a deep-dive into **Authentication** and **Authorization** 
 
 ---
 
-## 📘 Table of Contents
-
-- [Introduction](#introduction)
-- [Project Structure](#project-structure)
-- [Features Covered](#features-covered)
-- [Getting Started](#getting-started)
-- [Authentication Workflow](#authentication-workflow)
-- [Authorization Techniques](#authorization-techniques)
-- [Customization Options](#customization-options)
-- [Security Best Practices](#security-best-practices)
-- [Useful Commands](#useful-commands)
-- [Resources](#resources)
-
----
 
 ## 📌 Introduction
 
