@@ -1,8 +1,4 @@
-Here's a detailed and professional **README.md** file titled **"Authentication and Authorization with ASP.NET Core Identity Inside Out"**. This assumes you're working on a project that explores ASP.NET Core Identity, including configuration, customization, and usage in real-world applications.
 
----
-
-````markdown
 # 🔐 Authentication and Authorization with ASP.NET Core Identity Inside Out
 
 This project provides a deep-dive into **Authentication** and **Authorization** using **ASP.NET Core Identity**. It covers not only the out-of-the-box features of Identity but also custom implementations, configurations, and advanced techniques for building secure web applications.
