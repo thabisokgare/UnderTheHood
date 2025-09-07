@@ -1,6 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -23,15 +21,16 @@ namespace WebApp_undertheHood.Pages.Account
                 return Page();
             }
             // verify credentials
-            if (credential.Name == "admin" && credential.Password == "password")
+            if (credential.UserName == "admin" && credential.Password == "password")
             {
                 // create claims and sign in with a persistent cookie that expires in 60 seconds
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, credential.Name),
+                    new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@domain.local"),
                     new Claim("Department", "HR"),
                     new Claim("manager", "true"),
+                    new Claim("Manger", "true"),
                     new Claim("EmploymentDate", "2025-01-01")
                 };
 
@@ -59,7 +58,7 @@ namespace WebApp_undertheHood.Pages.Account
     {
         [Required]
         [Display(Description = "User Name")]
-        public string Name { get; set; } = string.Empty; // Changed to PascalCase
+        public string UserName { get; set; } = string.Empty; // Changed to PascalCase
 
         [Required]
         [DataType(DataType.Password)]

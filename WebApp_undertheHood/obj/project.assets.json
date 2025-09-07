@@ -61,11 +61,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ThabisoK\\ASP.NET SECURITY\\WebApp_undertheHood\\WebApp_undertheHood.csproj",
+      "projectUniqueName": "c:\\Users\\ThabisoK\\ASP.NET SECURITY\\WebApp_undertheHood\\WebApp_undertheHood.csproj",
       "projectName": "WebApp_undertheHood",
-      "projectPath": "C:\\Users\\ThabisoK\\ASP.NET SECURITY\\WebApp_undertheHood\\WebApp_undertheHood.csproj",
+      "projectPath": "c:\\Users\\ThabisoK\\ASP.NET SECURITY\\WebApp_undertheHood\\WebApp_undertheHood.csproj",
       "packagesPath": "C:\\Users\\ThabisoK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ThabisoK\\ASP.NET SECURITY\\WebApp_undertheHood\\obj\\",
+      "outputPath": "c:\\Users\\ThabisoK\\ASP.NET SECURITY\\WebApp_undertheHood\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

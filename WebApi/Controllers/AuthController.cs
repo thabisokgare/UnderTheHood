@@ -13,15 +13,15 @@ namespace WebApi.Controllers
   [Route("[controller]")]
   public class AuthController : ControllerBase
   {
-    private readonly IConfiguration _configuration;
+    private readonly IConfiguration configuration;
 
-    public AuthController(IConfiguration configuration)
+    public AuthController(IConfiguration configuration) // Constructor Dependency Injection
     {
-      _configuration = configuration;
+      this.configuration = configuration;
     }
 
    
-    [HttpPost("login")]
+    [HttpPost]
     public IActionResult Login([FromBody] LoginRequest request)
     {
       // Implement your login logic here
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
         // create claims and sign in with a persistent cookie that expires in 60 seconds
         var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, request.Username),
+                    new Claim(ClaimTypes.Name, "admin"),
                     new Claim(ClaimTypes.Email, "admin@domain.local"),
                     new Claim("Department", "HR"),
                     new Claim("manager", "true"),
@@ -55,32 +55,32 @@ namespace WebApi.Controllers
       };
       return Unauthorized(problemDetails);
     }
-   private string CreateToken(IEnumerable<Claim> claims, DateTime expiresAt)
+   private string CreateToken(List<Claim> claims, DateTime expiresAt)
 {
-    var claimsDic = claims
-        .Where(c => c.Type == ClaimTypes.Name)
-        .ToDictionary(c => c.Type, c => (object)c.Value);
-
+   var claimsDec = new Dictionary<string , object>();
+   if(claims is not null && claims.Count > 0)
+   {
+       foreach (var claim in claims)
+       {
+           claimsDec.Add(claim.Type, claim.Value);
+       }
+   }
     var tokenDescriptor = new SecurityTokenDescriptor
     {
-        Claims = claimsDic,
+        Claims = claimsDec,
         Expires = expiresAt,
         NotBefore = DateTime.UtcNow,
         SigningCredentials = new SigningCredentials(
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SuperSecretKey"] ?? string.Empty)),
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["SuperSecretKey"] ?? string.Empty)),
             SecurityAlgorithms.HmacSha256Signature)
     };
 
     var tokenHandler = new JsonWebTokenHandler();
     return tokenHandler.CreateToken(tokenDescriptor);
 }
-
-
-
-
     public class LoginRequest
     {
-      public string UserName { get; set; } = string.Empty;
+      public string Username { get; set; } = string.Empty;
       public string Password { get; set; } = string.Empty;
     }
   }
